@@ -101,6 +101,19 @@ export namespace Device {
     return required.every(r => device.actions.includes(r));
   }
 
+  export function MShasOpen(device: Device): boolean {
+    return device.actions.includes(Action.Open);
+  }
+
+  export function MShasClose(device: Device): boolean {
+    return device.actions.includes(Action.Close);
+  }
+
+  // Bond exposes the shade "stop" action as `Hold`.
+  export function MShasStop(device: Device): boolean {
+    return device.actions.includes(Action.Hold);
+  }
+
   export function LThasLightbulb(device: Device): boolean {
     const lightbulb = [Action.ToggleLight];
     return device.actions.some(r => lightbulb.includes(r));

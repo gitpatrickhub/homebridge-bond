@@ -200,6 +200,19 @@ export class BondApi {
     return this.action(device, Action.ToggleOpen, callback);
   }
 
+  public open(device: Device, callback: CharacteristicSetCallback): Promise<void> {
+    return this.action(device, Action.Open, callback);
+  }
+
+  public close(device: Device, callback: CharacteristicSetCallback): Promise<void> {
+    return this.action(device, Action.Close, callback);
+  }
+
+  // Bond's shade "stop" action is named `Hold`.
+  public hold(device: Device, callback: CharacteristicSetCallback): Promise<void> {
+    return this.action(device, Action.Hold, callback);
+  }
+
   public preset(device: Device, callback: CharacteristicSetCallback): Promise<void> {
     return this.action(device, Action.Preset, callback);
   }
