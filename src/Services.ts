@@ -173,6 +173,15 @@ export class ButtonService {
       service.subtype = subType;
     }
 
+    // Make the Home app show this button's own name (e.g. Open / Close / Stop)
+    // instead of falling back to the accessory name. Modern iOS displays the
+    // ConfiguredName characteristic; Name is set too for older versions.
+    service.setCharacteristic(platform.Characteristic.Name, name);
+    if (!service.testCharacteristic(platform.Characteristic.ConfiguredName)) {
+      service.addOptionalCharacteristic(platform.Characteristic.ConfiguredName);
+    }
+    service.setCharacteristic(platform.Characteristic.ConfiguredName, name);
+
     this.on = service.getCharacteristic(platform.Characteristic.On);
     this.on.setValue(false);
 
