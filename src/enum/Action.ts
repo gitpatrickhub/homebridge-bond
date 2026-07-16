@@ -20,6 +20,7 @@ export enum Action {
   TurnLightOff = 'TurnLightOff',
   Open = 'Open',
   Close = 'Close',
+  Hold = 'Hold',
   Preset = 'Preset',
   SetFlame = 'SetFlame',
   SetPosition = 'SetPosition'
